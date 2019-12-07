@@ -52,7 +52,7 @@ color:pink;
   font-family: 'Lucida Sans'; 
   width: 200px;
   height: 400px;
-  background-color: red;
+/*   background-color: red; */
   float: left;
 }
 
@@ -63,7 +63,7 @@ color:pink;
 }
 
 .game{
-  background-color: black;
+/*   background-color: black; */
   height: 400px;
   overflow: hidden;
 }
