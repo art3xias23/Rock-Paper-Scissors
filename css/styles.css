@@ -1,0 +1,69 @@
+body  {
+  background-image: url("background.png");
+}
+
+.title
+{
+  height:100px;
+  text-align: center;
+  font-family: 'Lucida Sans'; 
+  font-size: 30px;
+  color: #7286a0;
+}
+
+.gameMenu{
+height: 200px;
+}
+
+
+.gameMenu_optionStart{
+  background-color: #be6e46;
+  display: inline;
+  font-size: 40px;
+  text-decoration: underline;
+ color:#cde7b0; 
+ font-weight: bold;
+ float:left;
+ position: relative;
+}
+
+.gameMenu_optionRestart{
+  background-color:#be6e46;
+  display: inline;
+  font-size: 40px;
+  text-decoration: underline;
+  float:right;
+  color:#cde7b0;
+  font-weight: bold;
+}
+
+.board{
+height:400px;
+width: 2000px;
+position: relative;
+top: 30px;
+color:pink;
+/* background-color: red;  */
+}
+
+.gameOptions{
+  font-size: 20px;
+  text-align: left;
+  font-family: 'Lucida Sans'; 
+  width: 200px;
+  height: 400px;
+  background-color: red;
+  float: left;
+}
+
+#hand, #rock, #scissors{
+  height: 100px;
+  width:100px;
+  border-color: black;
+}
+
+.game{
+  background-color: black;
+  height: 400px;
+  overflow: hidden;
+}
