@@ -39,7 +39,7 @@ height: 200px;
 
 .board{
 height:400px;
-width: 2000px;
+width: 1700px;
 position: relative;
 top: 30px;
 color:pink;
@@ -66,4 +66,17 @@ color:pink;
   background-color: black;
   height: 400px;
   overflow: hidden;
+}
+
+.stats{
+text-align: center;
+font-size: 40px;
+}
+
+#computerChoice{
+margin-left: 40%;
+}
+
+#playerChoice{
+margin-left:20%;
 }
