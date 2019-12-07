@@ -1,3 +1,4 @@
+var userSelection;
 // CHOICE OPTIONS
 const rock_id = document.getElementById("rock");
 const paper_id = document.getElementById("paper");
@@ -5,8 +6,10 @@ const scissors_id = document.getElementById("scissors");
 
 //USERSCORES
 const userScore = document.getElementById("scorePlayer");
-const computerScore = document.getElementById("scoreComputer");
+var computerScore = document.getElementById("scoreComputer");
 const outcomeDisplay = document.getElementById("outcome");
+var userResult = 0;
+var computerResult = 0;
 
 function computerPlay()
 {
@@ -71,7 +74,7 @@ function decideOutcome(userSelection, computerSelection)
          case choiceEnum.PAPER + choiceEnum.PAPER:
             displayOutcome(decisionEnum.draw);
             break;
-        
+            div
         //USER SELECTS ROCK 
          case  choiceEnum.ROCK+  choiceEnum.ROCK:
              displayOutcome(decisionEnum.draw)   
@@ -82,7 +85,7 @@ function decideOutcome(userSelection, computerSelection)
          case choiceEnum.ROCK + choiceEnum.PAPER:
             displayOutcome(decisionEnum.computerWin);
             break;
-
+            value
         //USER SELECTS SCISSORS 
          case choiceEnum.SCISSORS + choiceEnum.ROCK:
              displayOutcome(decisionEnum.computerWin)   
@@ -93,6 +96,7 @@ function decideOutcome(userSelection, computerSelection)
          case choiceEnum.SCISSORS +  choiceEnum.PAPER:
             displayOutcome(decisionEnum.userWin);
             break;
+        default: break;
     }
 }
 
@@ -100,5 +104,18 @@ function displayOutcome(decision)
 {
     console.log(`displayOutcome: ${decision}`);
     outcomeDisplay.innerHTML = decision;
+
+    switch(decision)
+    {
+        case decisionEnum.userWin:
+            userResult++;
+            userScore.innerHTML = computerResult;
+            break;
+        case decisionEnum.computerWin:
+            computerResult++;
+            computerScore.innerHTML = computerResult;
+            break;
+            default: break;
+    }
 }
 
