@@ -1,50 +1,104 @@
-var userScore = 0;
-var computerScore = 0;
+// CHOICE OPTIONS
+const rock_id = document.getElementById("rock");
+const paper_id = document.getElementById("paper");
+const scissors_id = document.getElementById("scissors");
 
-function computerChoiceRandom()
+//USERSCORES
+const userScore = document.getElementById("scorePlayer");
+const computerScore = document.getElementById("scoreComputer");
+const outcomeDisplay = document.getElementById("outcome");
+
+function computerPlay()
 {
     var randomised = Math.random();
 
-    if( randomised <= 0.33)
+    if(randomised <= 0.33)
      {
-          return computerChoiceEnum.ROCK;
+          return choiceEnum.ROCK;
      }
      else if(randomised > 0.33 & randomised <= 0.66)
      {
-        return computerChoiceEnum.PAPPER;
+        return choiceEnum.PAPER;
      }
      else
      {
-          return computerChoiceEnum.SCISSORS;
+          return choiceEnum.SCISSORS;
      }
 }
 
 var playerChoice = document.getElementById("playerChoice");
 var computerChoice = document.getElementById("computerChoice");
 
-document.getElementById("rock").addEventListener('click', function (e)
-{
-console.log("Starting");
-    playerChoice.setAttribute('src', 'icons/rock.jpg')
-    console.log(computerChoiceRandom());
-    computerChoice.setAttribute('src', `icons/${computerChoiceRandom()}.jpg`)
-});
+rock_id.addEventListener('click', () => playGame(choiceEnum.ROCK));
+paper_id.addEventListener('click', () => playGame(choiceEnum.PAPER));
+scissors_id.addEventListener('click', () => playGame(choiceEnum.SCISSORS)); 
 
-document.getElementById("hand").addEventListener('click', function(e)
+function playGame(userSelection)
 {
-    playerChoice.setAttribute('src','icons/paper.jpg');
-    computerChoice.setAttribute('src', `icons/${computerChoiceRandom()}.jpg`)
-});
+    var computerSelection = computerPlay();
+    console.log(userSelection);
+    playerChoice.setAttribute('src', `icons/${userSelection}.jpg`)
+    computerChoice.setAttribute('src', `icons/${computerSelection}.jpg`)
+    decideOutcome(userSelection, computerSelection);
+};
 
-document.getElementById("scissors").addEventListener('click', function(e)
-{
-    playerChoice.setAttribute('src', 'icons/scissors.jpg');
-    computerChoice.setAttribute('src', `icons/${computerChoiceRandom()}.jpg`) 
-});
 
-var computerChoiceEnum = {
+var choiceEnum = {
     ROCK: "rock",
-    PAPPER : "paper",
+    PAPER : "paper",
     SCISSORS : "scissors"
+}
+
+var decisionEnum = {
+    userWin : "User Wins!",
+    computerWin : "Computer wins...",
+    draw : "It's a draw!"
+}
+
+function decideOutcome(userSelection, computerSelection)
+{
+    var selections = userSelection + computerSelection;
+    console.log(selections);
+    switch(selections)
+    {
+        //USER SELECTS PAPER
+         case choiceEnum.PAPER + choiceEnum.ROCK:
+             displayOutcome(decisionEnum.userWin)   
+            break;
+         case choiceEnum.PAPER + choiceEnum.SCISSORS:
+            displayOutcome(decisionEnum.computerWin)
+            break;
+         case choiceEnum.PAPER + choiceEnum.PAPER:
+            displayOutcome(decisionEnum.draw);
+            break;
+        
+        //USER SELECTS ROCK 
+         case  choiceEnum.ROCK+  choiceEnum.ROCK:
+             displayOutcome(decisionEnum.draw)   
+            break;
+         case choiceEnum.ROCK + choiceEnum.SCISSORS:
+            displayOutcome(decisionEnum.userWin)
+            break;
+         case choiceEnum.ROCK + choiceEnum.PAPER:
+            displayOutcome(decisionEnum.computerWin);
+            break;
+
+        //USER SELECTS SCISSORS 
+         case choiceEnum.SCISSORS + choiceEnum.ROCK:
+             displayOutcome(decisionEnum.computerWin)   
+            break;
+         case choiceEnum.SCISSORS + choiceEnum.SCISSORS:
+            displayOutcome(decisionEnum.draw)
+            break;
+         case choiceEnum.SCISSORS +  choiceEnum.PAPER:
+            displayOutcome(decisionEnum.userWin);
+            break;
+    }
+}
+
+function displayOutcome(decision)
+{
+    console.log(`displayOutcome: ${decision}`);
+    outcomeDisplay.innerHTML = decision;
 }
 

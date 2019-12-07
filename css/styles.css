@@ -56,7 +56,7 @@ color:pink;
   float: left;
 }
 
-#hand, #rock, #scissors{
+#paper, #rock, #scissors{
   height: 100px;
   width:100px;
   border-color: black;

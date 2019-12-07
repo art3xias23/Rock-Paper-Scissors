@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-        <link rel="stylesheet" href="css/styles.css">
 <html>
+        <link rel="stylesheet" href="css/styles.css">
     <head >
         <title>The classic ROCK, PAPER, SCISSORS game</title>
     </head>
@@ -21,17 +21,21 @@
         <div class="board">
             <div class="gameOptions">
                 <b class="gameTitle">Please select an option: </b><br>
-                <img id="hand" src="icons/paper.jpg"/><br>
+                <img id="paper" src="icons/paper.jpg"/><br>
                 <img id="rock" src="icons/rock.jpg"><br>
                 <img id="scissors" src="icons/scissors.jpg"><br>
             </div>
             <div class="game">
                 <div class="stats">
-                    <b class="scoreName">Score</b> 
+                    <b id="scoreName">Score</b> 
                     <br>
-                    <i class="scorePlayer1">0</i>
+                    <i id="scorePlayer">0</i>
                     <i>:</i>
-                    <i class="scorePlayer2">0</i>
+                    <i id="scoreComputer">0</i>
+                    <br>
+                    <div id="outcome">
+                        <p></p>
+                    </div>
                 </div>
                 <div class="battleGround">
                     <img id="playerChoice" />
