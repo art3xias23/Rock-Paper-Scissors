@@ -27,14 +27,15 @@ height: 200px;
  position: relative;
 }
 
-.gameMenu_optionRestart{
+#gameMenu_optionRestart{
   background-color:#be6e46;
   display: inline;
   font-size: 40px;
   text-decoration: underline;
-  float:right;
   color:#cde7b0;
   font-weight: bold;
+  margin-top: 200px;
+  margin-left: 801px;
 }
 
 .board{

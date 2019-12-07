@@ -11,6 +11,9 @@ const outcomeDisplay = document.getElementById("outcome");
 var userResult = 0;
 var computerResult = 0;
 
+// RESTART
+const restartButton = document.getElementById("gameMenu_optionRestart")
+
 function computerPlay()
 {
     var randomised = Math.random();
@@ -32,9 +35,11 @@ function computerPlay()
 var playerChoice = document.getElementById("playerChoice");
 var computerChoice = document.getElementById("computerChoice");
 
+//EVENTS
 rock_id.addEventListener('click', () => playGame(choiceEnum.ROCK));
 paper_id.addEventListener('click', () => playGame(choiceEnum.PAPER));
 scissors_id.addEventListener('click', () => playGame(choiceEnum.SCISSORS)); 
+restartButton.addEventListener('click', () => resetScores());
 
 function playGame(userSelection)
 {
@@ -44,6 +49,20 @@ function playGame(userSelection)
     computerChoice.setAttribute('src', `icons/${computerSelection}.jpg`)
     decideOutcome(userSelection, computerSelection);
 };
+
+function resetScores()
+{
+    userScore.innerHTML = 0;
+    userResult = 0;
+
+    computerScore.innerHTML = 0;
+    computerResult = 0;
+
+    outcomeDisplay.innerHTML = "";
+
+    playerChoice.setAttribute('src', '');
+    computerChoice.setAttribute('src', '');
+}
 
 
 var choiceEnum = {
@@ -109,11 +128,13 @@ function displayOutcome(decision)
     {
         case decisionEnum.userWin:
             userResult++;
-            userScore.innerHTML = computerResult;
+            userScore.innerHTML = userResult;
+            computerScore.innerHTML = computerResult;
             break;
         case decisionEnum.computerWin:
             computerResult++;
             computerScore.innerHTML = computerResult;
+            userScore = userResult;
             break;
             default: break;
     }
